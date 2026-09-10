@@ -1,64 +1,274 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-    <head th:replace="~{fragmentos/head :: head('Listagem Filmes')}"></head>
-    
-    
-    <body>
-        <header th:replace="~{fragmentos/header :: header(activePage='filme')}"> </header>
+<head th:replace="~{fragmentos/head :: head('Listagem Filmes')}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header th:replace="~{fragmentos/header :: header(activePage='dashboard')}">
+    </header>
 
 
+    <main class="dash-body">
 
-        <div class="dash-body">
+
+        <!-- =====================================================
+             LANÇAMENTOS
+             ===================================================== -->
+
+        <section class="secao-filmes">
+
+            <div class="secao-titulo">
+
+                <div>
+                    <h2>
+                        <i class="fas fa-film"></i>
+                        Lançamentos
+                    </h2>
+
+                    <p>
+                        Confira os filmes mais recentes
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Carrossel -->
+            <div id="carouselLancamentos"
+                 class="carousel slide"
+                 data-bs-ride="false">
+
+                <div class="carousel-inner">
+
+                    <!--
+                        O primeiro item precisa receber a classe "active".
+                        Por isso usamos th:classappend.
+                    -->
+                    <div th:each="filme, iterStat : ${lancamentos}"
+                         class="carousel-item"
+                         th:classappend="${iterStat.first} ? 'active' : ''">
+
+
+                        <div class="filme-lancamento-card">
+
+                            <!-- Poster -->
+                            <div class="lancamento-poster">
+
+                                <img th:if="${filme.poster != null
+                                            && filme.poster != ''
+                                            && filme.poster != 'N/A'}"
+                                     th:src="${filme.poster}"
+                                     alt="Poster do filme"
+                                     onerror="this.onerror=null;this.src='/images/sem-capa.jpg'">
+
+                                <div th:unless="${filme.poster != null
+                                                && filme.poster != ''
+                                                && filme.poster != 'N/A'}"
+                                     class="poster-sem-imagem">
+
+                                    <i class="fas fa-film"></i>
+
+                                    <span>Sem capa</span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Informações -->
+                            <div class="lancamento-info">
+
+                                <span class="lancamento-tag">
+                                    LANÇAMENTO
+                                </span>
+
+                                <h3 th:text="${filme.titulo}">
+                                    Título do filme
+                                </h3>
+
+
+                                <div class="lancamento-detalhes">
+
+                                    <span>
+                                        <i class="fas fa-calendar-alt"></i>
+
+                                        <span th:text="${filme.ano}">
+                                            2025
+                                        </span>
+                                    </span>
+
+
+                                    <span>
+                                        <i class="fas fa-clock"></i>
+
+                                        <span th:text="${filme.duracao}">
+                                            120 min
+                                        </span>
+                                    </span>
+
+
+                                    <span>
+                                        <i class="fas fa-user-tie"></i>
+
+                                        <span th:text="${filme.nomeDiretor}">
+                                            Diretor
+                                        </span>
+                                    </span>
+
+                                </div>
+
+
+                                <div class="classificacao">
+
+                                    <span>
+                                        Classificação
+                                    </span>
+
+                                    <strong th:text="${filme.classificacao}">
+                                        14
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Botão anterior -->
+                <button class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#carouselLancamentos"
+                        data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon"
+                          aria-hidden="true">
+                    </span>
+
+                    <span class="visually-hidden">
+                        Anterior
+                    </span>
+
+                </button>
+
+
+                <!-- Botão próximo -->
+                <button class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#carouselLancamentos"
+                        data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon"
+                          aria-hidden="true">
+                    </span>
+
+                    <span class="visually-hidden">
+                        Próximo
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SEPARAÇÃO
+             ===================================================== -->
+
+        <div class="separador-secoes">
+
+            <span></span>
+
+            <i class="fas fa-star"></i>
+
+            <span></span>
+
+        </div>
+
+
+        <!-- =====================================================
+             DESTAQUES
+             ===================================================== -->
+
+        <section class="secao-filmes destaques-section">
+
+            <div class="secao-titulo">
+
+                <div>
+                    <h2>
+                        <i class="fas fa-star"></i>
+                        Destaques
+                    </h2>
+
+                    <p>
+                        Filmes que merecem sua atenção
+                    </p>
+                </div>
+
+            </div>
+
 
             <div class="tabela-container">
 
-				<div class = "tabela-container-lancamento">
-	                <h2 class="tabela-titulo">Lancamentos</h2>
-	                <table class="tabela-filmes">
-	                    <thead>
-	                        <tr>
-	                            <th>Titulo</th>
-	                            <th>Classificação</th>
-	                            <th>Duração</th>
-	                            <th>Diretor</th>
-	                        </tr>
-	                    </thead>
-	                    <tbody>
-	                        <tr  th:each="filme : ${lancamentos}">
-	                            <td>[[${filme.titulo}]]</td>
-	                            <td>[[${filme.classificacao}]]</td>
-	                            <td>[[${filme.duracao}]]</td>
-	                            <td>[[${filme.diretor}]]</td>
-	                        </tr>
-	                    </tbody>
-	                </table>
-                </div>
+                <table class="tabela-filmes">
 
-				<div class = "tabela-container-destaque">
-	                <h2 class="tabela-titulo"> Destaques</h2>
-	                <table class="tabela-filmes">
-	                    <thead>
-	                        <tr>
-	                            <th>Titulo</th>
-	                            <th>Classificação</th>
-	                            <th>Duração</th>
-	                            <th>Diretor</th> 
-	                        </tr>
-	                    </thead>
-	                    <tbody>
-	                        <tr th:each="filme : ${destaques}">
-	                            <td>[[${filme.titulo}]]</td>
-	                            <td>[[${filme.classificacao}]]</td>
-	                            <td>[[${filme.duracao}]]</td>
-	                            <td>[[${filme.diretor}]]</td>                       
-	                        </tr>
-	                    </tbody>
-	                </table>
-				</div>
+                    <thead>
+
+                        <tr>
+                            <th>Título</th>
+                            <th>Classificação</th>
+                            <th>Duração</th>
+                            <th>Diretor</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr th:each="filme : ${destaques}">
+
+                            <td th:text="${filme.titulo}">
+                                Título
+                            </td>
+
+                            <td th:text="${filme.classificacao}">
+                                Classificação
+                            </td>
+
+                            <td th:text="${filme.duracao}">
+                                Duração
+                            </td>
+
+                            <td th:text="${filme.nomeDiretor}">
+                                Diretor
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
             </div>
-            
-        </div>
 
-    </body>
+        </section>
+
+
+    </main>
+
+
+    
+
+</body>
+
 </html>

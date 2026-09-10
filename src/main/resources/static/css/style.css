@@ -87,6 +87,455 @@
     color: var(--cor-primaria);
 }
 
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dash-body {
+    min-height: 100vh;
+
+    padding: 45px 0 70px;
+
+    background-color: var(--cor-secundaria);
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.secao-filmes {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+.secao-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    border-left: 5px solid var(--cor-terciaria);
+
+    padding-left: 15px;
+}
+
+.secao-titulo h2 {
+    margin: 0;
+
+    color: var(--cor-quaternaria);
+
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.secao-titulo h2 i {
+    margin-right: 8px;
+
+    color: var(--cor-terciaria);
+}
+
+.secao-titulo p {
+    margin: 6px 0 0;
+
+    color: rgba(223, 208, 184, 0.6);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CARROSSEL
+   ========================================================= */
+
+#carouselLancamentos {
+    position: relative;
+
+    padding: 0 60px;
+}
+
+
+/* =========================================================
+   CARD DE LANÇAMENTO
+   ========================================================= */
+
+.filme-lancamento-card {
+    display: flex;
+
+    min-height: 350px;
+
+    overflow: hidden;
+
+    background-color: var(--cor-primaria);
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(148, 137, 121, 0.2);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+    transition: 0.3s ease;
+}
+
+.filme-lancamento-card:hover {
+    border-color: rgba(148, 137, 121, 0.5);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   POSTER
+   ========================================================= */
+
+.lancamento-poster {
+    width: 260px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    background-color: var(--cor-primaria);
+}
+
+.lancamento-poster img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.filme-lancamento-card:hover .lancamento-poster img {
+    transform: scale(1.04);
+}
+
+
+/* Sem imagem */
+
+.poster-sem-imagem {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: var(--cor-terciaria);
+}
+
+.poster-sem-imagem i {
+    font-size: 45px;
+}
+
+.poster-sem-imagem span {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+   ========================================================= */
+
+.lancamento-info {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 40px;
+}
+
+.lancamento-tag {
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    margin-bottom: 15px;
+
+    border-radius: 5px;
+
+    background-color: var(--cor-terciaria);
+
+    color: var(--cor-primaria);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.lancamento-info h3 {
+    margin: 0 0 25px;
+
+    color: var(--cor-quaternaria);
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DETALHES
+   ========================================================= */
+
+.lancamento-detalhes {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+    color: rgba(223, 208, 184, 0.7);
+
+    font-size: 14px;
+}
+
+.lancamento-detalhes span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.lancamento-detalhes i {
+    color: var(--cor-terciaria);
+}
+
+
+/* =========================================================
+   CLASSIFICAÇÃO
+   ========================================================= */
+
+.classificacao {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: rgba(223, 208, 184, 0.6);
+
+    font-size: 14px;
+}
+
+.classificacao strong {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 38px;
+    height: 32px;
+
+    padding: 0 8px;
+
+    border-radius: 5px;
+
+    background-color: var(--cor-secundaria);
+
+    border: 1px solid var(--cor-terciaria);
+
+    color: var(--cor-quaternaria);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CONTROLES DO CARROSSEL
+   ========================================================= */
+
+#carouselLancamentos .carousel-control-prev,
+#carouselLancamentos .carousel-control-next {
+    width: 50px;
+
+    opacity: 1;
+}
+
+#carouselLancamentos .carousel-control-prev {
+    left: 0;
+}
+
+#carouselLancamentos .carousel-control-next {
+    right: 0;
+}
+
+#carouselLancamentos .carousel-control-prev-icon,
+#carouselLancamentos .carousel-control-next-icon {
+    width: 42px;
+    height: 42px;
+
+    padding: 10px;
+
+    border-radius: 50%;
+
+    background-color: var(--cor-terciaria);
+
+    background-size: 45%;
+
+    transition: 0.2s ease;
+}
+
+#carouselLancamentos .carousel-control-prev-icon:hover,
+#carouselLancamentos .carousel-control-next-icon:hover {
+    background-color: var(--cor-quaternaria);
+}
+
+
+/* =========================================================
+   SEPARADOR ENTRE SEÇÕES
+   ========================================================= */
+
+.separador-secoes {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 55px auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.separador-secoes span {
+    flex: 1;
+
+    height: 1px;
+
+    background-color: rgba(148, 137, 121, 0.35);
+}
+
+.separador-secoes i {
+    color: var(--cor-terciaria);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   DESTAQUES
+   ========================================================= */
+
+.destaques-section {
+    margin-bottom: 30px;
+}
+
+.destaques-section .tabela-container {
+    width: 100%;
+
+    margin: 0;
+
+    background-color: var(--cor-primaria);
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .dash-body {
+        padding-top: 30px;
+    }
+
+    .secao-filmes {
+        width: 95%;
+    }
+
+    #carouselLancamentos {
+        padding: 0 35px;
+    }
+
+    .filme-lancamento-card {
+        flex-direction: column;
+    }
+
+    .lancamento-poster {
+        width: 100%;
+
+        height: 350px;
+    }
+
+    .lancamento-info {
+        padding: 25px;
+    }
+
+    .lancamento-info h3 {
+        font-size: 24px;
+    }
+
+    .lancamento-detalhes {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    #carouselLancamentos .carousel-control-prev,
+    #carouselLancamentos .carousel-control-next {
+        width: 35px;
+    }
+
+    .separador-secoes {
+        width: 95%;
+
+        margin: 40px auto;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .secao-titulo h2 {
+        font-size: 23px;
+    }
+
+    .lancamento-poster {
+        height: 300px;
+    }
+
+    .lancamento-info {
+        padding: 20px;
+    }
+
+    .lancamento-info h3 {
+        font-size: 21px;
+    }
+
+    .destaques-section .tabela-container {
+        padding: 15px;
+
+        overflow-x: auto;
+    }
+
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
 
