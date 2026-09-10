@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="~{fragmentos/head :: head('Listagem Filmes')}"></head>
+    
+    
+    <body>
+        <header th:replace="~{fragmentos/header :: header(activePage='filme')}"> </header>
+
+
+
+        <div class="dash-body">
+
+            <div class="tabela-container">
+
+				<div class = "tabela-container-lancamento">
+	                <h2 class="tabela-titulo">Lancamentos</h2>
+	                <table class="tabela-filmes">
+	                    <thead>
+	                        <tr>
+	                            <th>Titulo</th>
+	                            <th>Classificação</th>
+	                            <th>Duração</th>
+	                            <th>Diretor</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                        <tr  th:each="filme : ${lancamentos}">
+	                            <td>[[${filme.titulo}]]</td>
+	                            <td>[[${filme.classificacao}]]</td>
+	                            <td>[[${filme.duracao}]]</td>
+	                            <td>[[${filme.diretor}]]</td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+                </div>
+
+				<div class = "tabela-container-destaque">
+	                <h2 class="tabela-titulo"> Destaques</h2>
+	                <table class="tabela-filmes">
+	                    <thead>
+	                        <tr>
+	                            <th>Titulo</th>
+	                            <th>Classificação</th>
+	                            <th>Duração</th>
+	                            <th>Diretor</th> 
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                        <tr th:each="filme : ${destaques}">
+	                            <td>[[${filme.titulo}]]</td>
+	                            <td>[[${filme.classificacao}]]</td>
+	                            <td>[[${filme.duracao}]]</td>
+	                            <td>[[${filme.diretor}]]</td>                       
+	                        </tr>
+	                    </tbody>
+	                </table>
+				</div>
+            </div>
+            
+        </div>
+
+    </body>
+</html>

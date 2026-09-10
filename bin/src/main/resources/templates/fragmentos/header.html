@@ -2,7 +2,7 @@
 <header th:fragment="header(activePage)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-			<a class="navbar-brand" > <i class="fas fa-film me-2"></i>LocFlix</a>
+			<a class="navbar-brand" > <i class="fas fa-film me-2"></i>RentMovie 2050 </a>
 
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -21,19 +21,12 @@
 
 					<!-- Dropdown de Filmes -->
 					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle"
-					   id="filmesDropdown"
-					   role="button"
-					   data-bs-toggle="dropdown"
-					   aria-expanded="false"
-					   th:classappend="${activePage == 'filme'} ? 'active' : ''"
-					   th:href="@{/filme}"
-					   style="cursor: pointer;">
-					
-					    <i class="fas fa-film me-1"></i>
-					    Filmes
-					</a>
-
+						<a class="nav-link dropdown-toggle" id="filmesDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false"
+						th:classappend="${activePage == 'filme'} ? 'active' : ''"
+						style="cursor: pointer;"> <i class="fas fa-film me-1"></i>
+							Filmes
+						</a>
 						<ul class="dropdown-menu" aria-labelledby="filmesDropdown">
 							<li><a class="dropdown-item"
 								th:classappend="${activePage == 'filme'} ? 'active' : ''"

@@ -1,0 +1,106 @@
+:root{
+	--cor-primaria: #222831;
+	--cor-secundaria: #393E46;
+	--cor-terciaria: #948979;
+	--cor-quaternaria: #DFD0B8;
+}
+
+
+/* Container da tabela */
+.tabela-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    background-color: var(--cor-primaria);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    gap: 30px;
+}
+
+/* Título */
+.tabela-titulo {
+    color: var(--cor-quaternaria);
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-left: 5px solid var(--cor-terciaria);
+    padding-left: 15px;
+}
+
+/* Tabela */
+.tabela-filmes {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    color: var(--cor-quaternaria);
+}
+
+/* Cabeçalho */
+.tabela-filmes thead {
+    background-color: var(--cor-secundaria);
+}
+
+.tabela-filmes th {
+    padding: 16px;
+    text-align: left;
+    color: var(--cor-quaternaria);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Linhas */
+.tabela-filmes tbody tr {
+    background-color: var(--cor-primaria);
+    border-bottom: 1px solid rgba(148, 137, 121, 0.25);
+    transition: 0.2s ease;
+}
+
+/* Linhas alternadas */
+.tabela-filmes tbody tr:nth-child(even) {
+    background-color: var(--cor-secundaria);
+}
+
+/* Hover */
+.tabela-filmes tbody tr:hover {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    transform: scale(1.005);
+}
+
+/* Células */
+.tabela-filmes td {
+    padding: 15px 16px;
+    font-size: 15px;
+}
+
+/* Destaque no título do filme */
+.tabela-filmes td:first-child {
+    font-weight: 600;
+    color: var(--cor-quaternaria);
+}
+
+.tabela-filmes tbody tr:hover td:first-child {
+    color: var(--cor-primaria);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+    .tabela-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .tabela-filmes {
+        font-size: 14px;
+    }
+
+    .tabela-filmes th,
+    .tabela-filmes td {
+        padding: 12px 10px;
+    }
+}
